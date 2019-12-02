@@ -8,24 +8,24 @@ class Map:
 		self.map = {}
 		self.clear_entire()
 
-	def set(self, x, y, entity):
-		self.map[(x, y)] = entity
+	def set(self, pos, entity):
+		self.map[pos] = entity
 		return self
 
-	def get(self, x, y):
-		return self.map[y][x]
+	def get(self, pos):
+		return self.map[pos[0]][pos[1]]
 
-	def check(self, x, y):
-		return self.get(x, y) > 0
+	def check(self, pos):
+		return self.get(pos) > 0
 
-	def clear(self, x, y):
-		self.set(x, y, 0)
+	def clear(self, pos):
+		self.set(pos, 0)
 		return self
 
 	def clear_entire(self):
 		for x in range(self.size):
 			for y in range(self.size):
-				self.clear(x, y)
+				self.clear((x, y))
 
 	def render(self):
 		out = ""
